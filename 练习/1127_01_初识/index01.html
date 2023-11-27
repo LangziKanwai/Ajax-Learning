@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p></p>
+    <!-- 引入 axios.js 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      // 使用 axios 函数
+      axios({
+        // 需要访问的服务器资源地址
+        url: "http://hmajax.itheima.net/api/province",
+      }).then((result) => {
+        // then 回调函数获取接收到的数据
+        console.log(result); // 获取到的是一个对象
+        console.log(result.data.list); // 所需要的数据
+        console.log(result.data.list.join("<br>")); // 处理数据
+        document.querySelector("p").innerHTML = result.data.list.join("<br>");
+      });
+    </script>
+  </body>
+</html>

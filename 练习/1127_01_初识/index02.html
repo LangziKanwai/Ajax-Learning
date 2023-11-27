@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p></p>
+    <!-- 引入 axios.js -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      axios({
+        url: "http://hmajax.itheima.net/api/city",
+        // 参数查询
+        params: {
+          // 参数名: 值
+          pname: "安徽省",
+        },
+      }).then((result) => {
+        // 服务器传回的数据
+        console.log(result.data.list);
+        document.querySelector("p").innerHTML = result.data.list.join("<br>");
+      });
+    </script>
+  </body>
+</html>
